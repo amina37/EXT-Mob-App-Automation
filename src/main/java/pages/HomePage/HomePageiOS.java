@@ -8,6 +8,7 @@ public class HomePageiOS extends HomePageAbstract{
     public HomePageiOS(AppiumDriver driver)
     {
         super(driver);
+        //hh
         SkipBtn = By.id("");
     }
 }
