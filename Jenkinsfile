@@ -8,7 +8,7 @@ pipeline {
     stages {
            stage('setup') {
          steps {
-          browserstack('ae398edf-2122-477e-9d2b-999e76291acc') {
+          browserstack('83aca231-6312-45b9-bfa0-fede3873b581') {
               echo 'success'
 
           }
@@ -17,7 +17,7 @@ pipeline {
       }
       stage('Upload') {
             steps {
-                browserstackAppUploader('D:\\jenkins_test_ci_cd\\app\\release\\app-release.apk') {
+                browserstackAppUploader('C:\\Users\\Amina\\Documents\\TDRA\\Automation\\Jenkis\\apk.1\\debug-9.6.0.apk') {
                   echo "${env.BROWSERSTACK_APP_ID}"
 }
             }
@@ -25,7 +25,7 @@ pipeline {
  stage('Checkout') {
             steps {
                 // Checkout the code from the Git repository
-                git branch: 'master', url: 'https://github.com/shehabosama/external-tdra-mobile-automation.git'
+                git branch: 'master', url: 'https://github.com/amina37/EXT-Mob-App-Automation.git'
             }
         }
 
