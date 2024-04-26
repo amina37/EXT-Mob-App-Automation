@@ -1,24 +1,17 @@
 package Tests;
 
-import java.time.Duration;
-import java.util.List;
-
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import io.appium.java_client.AppiumBy;
 import pages.HomePage.HomePageAbstract;
 import pages.HomePage.HomePageAndroid;
 import pages.HomePage.HomePageiOS;
 import utilities.readers.PropertiesReader;
 
-public class HomeTest extends BaseTest {
+public class HomeGuestTest extends BaseTest {
 
     HomePageAbstract homePage;
-    public HomeTest() throws Exception {
+    public HomeGuestTest() throws Exception {
         setUp();
          if(PropertiesReader.getValue("Platform").equalsIgnoreCase("Android"))
          {
@@ -29,11 +22,12 @@ public class HomeTest extends BaseTest {
          }
     }
     @Test()
-    //S
-           // System.out.println("helo");
-    //hjghfgf
-    public void ValidateSkipBtnTest()  {
+
+    public void ValidateSkipBtnTest()
+    {
         Assert.assertTrue(homePage.validationSkip());
     }
+
+
 
 }
