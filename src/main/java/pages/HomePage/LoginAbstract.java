@@ -47,8 +47,8 @@ public class LoginAbstract {
 
     //View Requets list
     public boolean validationOfRequestsList() {
-        new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.invisibilityOfElementLocated(requestsBtn));
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOfElementLocated(homePageNavBtn));
         driver.findElement(requestsBtn).click();
-        return new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(homePageNavBtn)).isDisplayed();
+        return new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(homePageNavBtn)).isDisplayed();
     }
 }

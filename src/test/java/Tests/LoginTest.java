@@ -19,13 +19,15 @@ public class LoginTest extends BaseTest {
         }
     }
 
-    @Test()
+    @Test(priority = 1)
 
     public void ValidateLoginTest() {
         Assert.assertTrue(loginPage.validationLogin());
     }
-
-
+@Test(priority = 2)
+public void ValidateRequestsTest() {
+    Assert.assertTrue(loginPage.validationOfRequestsList());
+}
 }
 
 
