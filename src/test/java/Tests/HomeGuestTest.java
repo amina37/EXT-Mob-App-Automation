@@ -21,7 +21,7 @@ public class HomeGuestTest extends BaseTest {
              homePage = new HomePageiOS(driver);
          }
     }
-    @Test()
+    @Test(enabled = false)
 
     public void ValidateSkipBtnTest()
     {

@@ -2,8 +2,10 @@ package pages.HomePage;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import java.time.Duration;
 
@@ -24,17 +26,25 @@ public class LoginAbstract {
     }
 
     //Login Button with username and password
-    public void validationLogin() {
-        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfElementLocated(loginBtn)).isDisplayed();
+    public boolean validationLogin() {
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOfElementLocated(loginBtn)).isDisplayed();
         driver.findElement(loginBtn).click();
-        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(emailTxt)).isDisplayed();
-        driver.findElement(emailTxt).sendKeys("test3@bnsights.com");
-        driver.findElement(passwordTxt).sendKeys("P@ssw0rd");
-        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(submitBtn)).isEnabled();
+      driver.findElement(emailTxt).click();
+       // new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(emailTxt)).clear();
+        driver.navigate().back();
+        new Actions(driver)
+                .sendKeys(driver.findElement(emailTxt),"test3@bnsights.com")
+                .perform();
+        driver.findElement(passwordTxt).click();
+        new Actions(driver)
+                .sendKeys(driver.findElement(emailTxt),"P@ssw0rd")
+                .perform();
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(submitBtn)).isEnabled();
         driver.findElement(submitBtn).click();
-        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(homePageNavBtn)).isDisplayed();
+      return   new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(homePageNavBtn)).isDisplayed();
 
     }
+
     //View Requets list
     public boolean validationOfRequestsList() {
         new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.invisibilityOfElementLocated(requestsBtn));

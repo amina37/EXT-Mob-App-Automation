@@ -8,26 +8,25 @@ import utilities.readers.PropertiesReader;
 public class LoginTest extends BaseTest {
 
 
-        LoginAbstract loginPage;
+    LoginAbstract loginPage;
+
     public LoginTest() throws Exception {
-            setUp();
-            if(PropertiesReader.getValue("Platform").equalsIgnoreCase("Android"))
-            {
-                loginPage = new LoginPageAndroid(driver);
-            }
-            else {
-                loginPage = new LoginPageIOS(driver);
-            }
+        setUp();
+        if (PropertiesReader.getValue("Platform").equalsIgnoreCase("Android")) {
+            loginPage = new LoginPageAndroid(driver);
+        } else {
+            loginPage = new LoginPageIOS(driver);
         }
-        @Test()
-
-        public void ValidateLoginTest()
-        {
-            loginPage.validationLogin();
-        }
-
-
     }
+
+    @Test()
+
+    public void ValidateLoginTest() {
+        Assert.assertTrue(loginPage.validationLogin());
+    }
+
+
+}
 
 
 

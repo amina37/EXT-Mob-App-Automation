@@ -28,8 +28,6 @@ public class HomePageAbstract {
         return new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(skipBtn)).isDisplayed();
     }
 
-
-
     //See all services in home page Button
     public boolean validationSeeAllServices() {
         driver.findElement(seeAllservicesBtn).click();
