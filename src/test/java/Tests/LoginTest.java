@@ -2,30 +2,28 @@ package Tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomePage.HomePageAbstract;
-import pages.HomePage.HomePageAndroid;
-import pages.HomePage.HomePageiOS;
+import pages.HomePage.*;
 import utilities.readers.PropertiesReader;
 
 public class LoginTest extends BaseTest {
 
 
-        HomePageAbstract homePage;
+        LoginAbstract loginPage;
     public LoginTest() throws Exception {
             setUp();
             if(PropertiesReader.getValue("Platform").equalsIgnoreCase("Android"))
             {
-                homePage = new HomePageAndroid(driver);
+                loginPage = new LoginPageAndroid(driver);
             }
             else {
-                homePage = new HomePageiOS(driver);
+                loginPage = new LoginPageIOS(driver);
             }
         }
         @Test()
 
         public void ValidateLoginTest()
         {
-            homePage.validationLogin();
+            loginPage.validationLogin();
         }
 
 
